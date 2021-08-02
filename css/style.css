@@ -1,0 +1,45 @@
+body {
+    color: rgb(116, 116, 116);
+}
+
+
+thead {
+    padding: 50px;
+    text-align: left;
+}
+
+table.dataTable tbody tr {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1.5px solid rgb(175, 175, 175);
+}
+
+/* custom class  */
+
+.centerTable {
+  
+    margin: auto;
+    position: absolute;
+    top: 25%; left: 0; bottom: 0; right: 0;
+
+
+}
+
+.customBtn {
+    color: rgb(0, 162, 255);
+    border: 1.2px solid rgb(0, 162, 255);
+    font-size: 14px;
+    padding: 0 10px 0;
+}
+
+.customIcon {
+    color: rgb(0, 162, 255);
+    margin-right: 20px;
+}
