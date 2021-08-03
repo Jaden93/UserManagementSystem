@@ -1,34 +1,37 @@
 <?php
+
     require "../connection.php";
-    
-    
-    if(isset($_POST['updateData'])) {
-    
-        $conn = $GLOBALS['mysql'];
+    $conn = $GLOBALS['mysql'];
+
+    if(!isset($_POST['updateData'])) {
         
-        $id = $_POST['id'];
-        $name = $_POST['nome'];
-        $date = $_POST['data'];
-        $indirizzo = $_POST['indirizzo'];
-        $email = $_POST['email'];
-        $tipo = $_POST['tipo'];
-        $attivo = $_POST['attivo'];
+        $id = $_POST['update_id'];
+        $name = $_POST['update_nome'];
+        $date = $_POST['update_data'];
+        $indirizzo = $_POST['update_indirizzo'];
+        $email = $_POST['update_email'];
+        $tipo = $_POST['update_tipo'];
+        $attivo = $_POST['update_attivo'];
+        
+
+        if ($tipo == "") {
+            $tipo = "individuale";
+        }
+        var_dump($attivo);
+        
         $sql = "UPDATE `users` 
-        SET `name`='$name',
-        `email`='$email',
+        SET `nome`='$name',
+        `tipo`='$tipo',
         `indirizzo`='$indirizzo',
         `data`='$date',
-        `attivo`='$attivo',
-        `tipo`='$tipo' WHERE id=$id";
-      
-        var_dump($sql);
-        $res = $conn->query($sql);
-        
-        if ($res) {
-            echo json_encode(array("statusCode"=>200));
+        `email` = '$email',
+        `attivo` = '$attivo'
+         WHERE id=$id";
 
-        } else {  
-            echo "Error updating record: " . $conn->error;
+
+      $res = $conn->query($sql);
+        if ($res) {
+            header('location: ../index.php');
         }
         mysqli_close($conn);
 

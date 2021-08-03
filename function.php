@@ -26,11 +26,7 @@ require "connection.php";
             $date = $_POST["date"]; 
             $tipo = $_POST["option"]; 
             $check = $_POST["check"];
-            if ($check == 0) {
-                $check = "NO";
-            } else {
-                $check = "SI";
-            }
+         
 
             if ($tipo == "") {
                 $tipo = "individuale";
@@ -82,5 +78,7 @@ require "connection.php";
         }
     }
 
+
+    
 
     

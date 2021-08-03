@@ -22,8 +22,8 @@
                     </div>
                     <div class="my-2">
                         <label class="" for="check">Spunta se utente attivo</label>
-                        <input name="check" type="hidden" class="form-check-input" value="0" id="check">
-                        <input name="check" type="checkbox" value="1" class="form-check-input" id="check">
+                        <input name="check"  type="hidden" class="form-check-input" value="NO" id="check">
+                        <input name="check"   type="checkbox" value="SI" class="form-check-input" id="check">
                     </div>
 
                     <label for="tipo">Tipo</label>
