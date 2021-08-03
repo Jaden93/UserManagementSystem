@@ -35,11 +35,52 @@ require "connection.php";
             if ($tipo == "") {
                 $tipo = "individuale";
             }
-            $sql = "INSERT INTO users {nome,email,data,indirizzo,tipo,attivo) VALUES ";
-            $sql .= " ($name,$email,$date,$address,$tipo,$check)";
+            $sql = "INSERT INTO users (nome,email,data,indirizzo,tipo,attivo) VALUES ";
+            $sql .= " ('$name','$email','$date','$address','$tipo','$check')";
+            $res = $conn->query($sql);
+
+            return header('location: /test/index.php');
             
-        return $sql;
+            
+            if (!$res) {
+                die($conn->error);
+            }
         } 
     }
 
-var_dump(insertUser());    
+
+    function getUser() {
+
+        $conn = $GLOBALS['mysql'];
+        $sql = "SELECT * from users";
+
+        $result = [];
+        
+        $res = $conn->query($sql);
+        
+        if ($res) {
+            while ($row = $res->fetch_assoc()) {
+                $result[] = $row;
+            }
+            return $result;
+            
+        } 
+    }
+
+    function updateUser() {
+        
+        
+        $conn = $GLOBALS['mysql'];
+        $sql = "UPDATE users SET user=?, password=? WHERE id =  ";
+
+        $res = $conn->query($sql);
+
+        if ($res) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+    }
+
+
+    

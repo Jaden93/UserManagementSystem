@@ -25,9 +25,9 @@ require "function.php";
         </div>
         <?php
         $options = insertTipo();
+        require_once "./view/formInser.php";
         require_once "./view/formInsert.php"; 
-        // $Users = getUser();  
-
+        $users = getUser();  
         ?>
         <table id="datatableid" class="customLine" style="width:100%">
             <thead>
@@ -42,38 +42,30 @@ require "function.php";
                 </tr>
             </thead>
             <tbody class="customBg">
-                <tr>
-                    <th><i type="button" class=" far fa-play-circle btn customIcon" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i>1</th>
-                    <th>ciao</th>
-                    <th>ciao</th>
-                    <th>ciao</th>
-                    <th>ciao</th>
-                    <th>ciao</th>
-                    <th>ciao</th>
-                </tr>
+                <?php 
+                if ($users) {
+                    foreach ($users as $user) { ?>
+                        <tr class="action<?php echo $user['id']?>">
+                        <th data_id="<?php echo $user['id']?>" class="currRecord"><button class="far fa-play-circle btn customIcon editBtn" 
+                        data-bs-toggle="modal" data-bs-target="#modal"></button><?= $user['id'] ?></th>
+                        <th ><?= $user['nome'] ?></th>
+                        <th><?= $user['tipo'] ?></th>
+                        <th><?= $user['indirizzo'] ?></th>
+                        <th><?= $user['data'] ?></th>
+                        <th><?= $user['email'] ?></th>
+                        <th><?= $user['attivo'] ?></th>                        
+                    </tr>
+
+                    <?php
+                    }
+                    
+                    }
+            
+                ?>
             </tbody>
         </table>
     </div>
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
+        
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -88,7 +80,9 @@ require "function.php";
                 "searching": false
             });
         });
-    </script>
+    </script>    
+    <script src="./controller/update.js"></script>
+    <script src="./controller/delete.js"></script>
 </body>
 
 </html>
