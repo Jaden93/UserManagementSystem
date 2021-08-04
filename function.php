@@ -18,7 +18,6 @@ require "connection.php";
     
         $conn = $GLOBALS['mysql'];
         
-      
         if(isset($_POST["check"])) {
             $name = $_POST["nome"]; 
             $email = $_POST["email"]; 
@@ -26,7 +25,6 @@ require "connection.php";
             $date = $_POST["date"]; 
             $tipo = $_POST["option"]; 
             $check = $_POST["check"];
-         
 
             if ($tipo == "") {
                 $tipo = "individuale";
@@ -43,7 +41,6 @@ require "connection.php";
             }
         } 
     }
-
 
     function getUser() {
 
@@ -65,8 +62,8 @@ require "connection.php";
 
     function updateUser() {
         
-        
         $conn = $GLOBALS['mysql'];
+        
         $sql = "UPDATE users SET user=?, password=? WHERE id =  ";
 
         $res = $conn->query($sql);
@@ -78,26 +75,4 @@ require "connection.php";
         }
     }
 
-
-    
-
-        
-    function deleteId() {
-        
-        $conn = $GLOBALS['mysql'];
-        $id = $_POST['data_id']; 
-    
-    
-        $sql = " DELETE FROM users WHERE id =  '$id' ";
-
-            $res = $conn->query($sql);
-                if ($res) {
-                    return $sql;
-                } else {
-                    echo "Error updating record: " . $conn->error;
-                }
-        
-        
-
-    }    
 

@@ -7,7 +7,6 @@ $(document).ready(function(){
             return $(this).text();
         }).get();
 
-        //for (i = 0; i < data; i++)
         $('#modal_id').val(data[0]);
         $('#modal_nome').val(data[1]);
         $('#modal_tipo').val(data[2]);
@@ -16,11 +15,14 @@ $(document).ready(function(){
         $('#modal_email').val(data[5]);
         $('.checker').val(data[6]);
 
-        el = data[6]
+        let el = data[6];
+        
         if (el == "NO") {
+
             $(".off")[0].checked = false;
 
         } else {
+            
             $('.off')[0].checked = true;
         }
     })

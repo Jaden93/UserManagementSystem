@@ -27,11 +27,14 @@
         `attivo` = '$attivo'
          WHERE id=$id";
 
+        $res = $conn->query($sql);
 
-      $res = $conn->query($sql);
-        if ($res) {
-            header('location: ../index.php');
-        }
+            if ($res) {
+                header('location: ../index.php');
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        
         mysqli_close($conn);
 
     }

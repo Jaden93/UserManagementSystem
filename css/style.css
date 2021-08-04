@@ -1,8 +1,7 @@
 body {
     color: rgb(116, 116, 116);
 }
-
-
+ 
 thead {
     padding: 50px;
     text-align: left;
@@ -32,6 +31,9 @@ table.dataTable thead th, table.dataTable thead td {
 
 }
 
+.customModalhead {
+    justify-content: flex-end;
+}
 .customBtn {
     color: rgb(0, 162, 255);
     border: 1.2px solid rgb(0, 162, 255);
@@ -53,3 +55,7 @@ table.dataTable thead th, table.dataTable thead td {
 .modal-dialog {
     max-width: 800px;
 }
+
+.toggle {
+    display : none;
+    }
