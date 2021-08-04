@@ -1,24 +1,29 @@
-$(document).ready(function(){
-    $('.editBtn').on('click',function() {
-        
-        
-        test = $(this).closest(tr)
-        date_id = [test]
-        console.log(date[0])
-        $.ajax({
-            url: "./controller/delete.php",
-            type: "POST",
-            data: {
-                data_id: id
-            },
-            cache: false,
-            success: function (data) {
-                if (data) {
-                    $('.action' + id).hide('slow')
-                } else {
-                    alert("Non posso eliminarlo")
-                }
-            }
-        })
-    })
+// QUASI
+
+    
+    $('#dltBtn').on('click', function() {
+    formAction =  $('.editBtn').closest('tr')
+
+    let newarr = Array.prototype.slice.call( formAction, 0 )
+ 
+    for (i = 0; i < newarr.length; i++  ) {
+        let record = newarr[i];
+        let currId = record.getAttribute("data_value")
+        console.log(currId)
+        if (currId == valueId) {
+            $.ajax ({
+                url: "./controller/delete.php",
+                type: "POST",
+                data: { data_id: valueId }
+                })   
+
+        }
+    }
+
+    
+})
+
+$('.editBtn').on("click", function() {
+    valueId =  $(this).closest('tr').attr("data_value")
+
 })

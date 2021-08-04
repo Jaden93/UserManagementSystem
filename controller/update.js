@@ -7,6 +7,7 @@ $(document).ready(function(){
             return $(this).text();
         }).get();
 
+        //for (i = 0; i < data; i++)
         $('#modal_id').val(data[0]);
         $('#modal_nome').val(data[1]);
         $('#modal_tipo').val(data[2]);

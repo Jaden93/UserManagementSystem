@@ -1,22 +1,27 @@
 <?php
     require "../connection.php";
     
-  
-        
         $conn = $GLOBALS['mysql'];
-        $id = $_POST['data_id']; 
-
-        
+        $id = ($_POST['data_id']); 
             
-            $sql = " DELETE FROM users WHERE id =  '$id' ";
-            echo $sql;
-            return $sql;
-            $res = $conn->query($sql);
-                if ($res) {
-                    echo $sql;
-                } else {
-                    echo "Error updating record: " . $conn->error;
-                }
-        
-        
+        $sql = " DELETE FROM users WHERE id =  '$id' ";
+
+        $res = $conn->query($sql);
+                    if ($res) {
+                        header('location: ../index.php');
+                        
+                    } else {
+                        echo "Error updating record: " . $conn->error;
+                    }
+            
+        // }
+
     
+        
+
+                        
+    
+        
+
+   
+

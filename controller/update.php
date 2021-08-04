@@ -17,7 +17,6 @@
         if ($tipo == "") {
             $tipo = "individuale";
         }
-        var_dump($attivo);
         
         $sql = "UPDATE `users` 
         SET `nome`='$name',

@@ -81,4 +81,23 @@ require "connection.php";
 
     
 
+        
+    function deleteId() {
+        
+        $conn = $GLOBALS['mysql'];
+        $id = $_POST['data_id']; 
     
+    
+        $sql = " DELETE FROM users WHERE id =  '$id' ";
+
+            $res = $conn->query($sql);
+                if ($res) {
+                    return $sql;
+                } else {
+                    echo "Error updating record: " . $conn->error;
+                }
+        
+        
+
+    }    
+

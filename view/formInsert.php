@@ -2,8 +2,10 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <button id="dltBtn"  aria-label="Close">Elimina</button>
-                <form method="POST" action="./controller/update.php">
+        <form method="POST" action="./controller/delete.php">
+        <button  class="btn btn-danger" type="submit" id="dltBtn"  name="delete" aria-label="Close">Delete</button> 
+    </form>
+            <form method="POST" action="./controller/update.php">
                 <button type="submit" class="btn btn-primary " nome="updateData" data-bs-dismiss="modal" aria-label="Close">Salva</button>          
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Salva e
                     chiudi</button>

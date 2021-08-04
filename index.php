@@ -1,6 +1,5 @@
 <?php
 require "function.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +22,7 @@ require "function.php";
             <i class="fas fa-search"></i>
             <button type="button" class="btn customBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"><span
                     class="customCross">+</span>Aggiungi</button>
+                    
         </div>
         <?php
         $options = insertTipo();
@@ -46,10 +46,11 @@ require "function.php";
                 <?php 
                 if ($users) {
                     foreach ($users as $user) { ?>
-                        <tr class="action<?php echo $user['id']?>">
-                        <th data_id="<?php echo $user['id']?>" class="currRecord"><button class="far fa-play-circle btn customIcon editBtn" 
+                        <tr data_value=<?= $user['id']?> class="action<?php echo $user['id']?>">
+                        <th  class="currRecord"><button data_id="<?= $user['id']?>" class="far fa-play-circle btn customIcon editBtn" 
                         data-bs-toggle="modal" data-bs-target="#modal"></button><?= $user['id'] ?></th>
-                        <th ><?= $user['nome'] ?></th>
+</th>
+                        <th><?= $user['nome'] ?></th>
                         <th><?= $user['tipo'] ?></th>
                         <th><?= $user['indirizzo'] ?></th>
                         <th><?= $user['data'] ?></th>
