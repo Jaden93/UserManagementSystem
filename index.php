@@ -1,6 +1,6 @@
 <?php
 
-require "function.php";
+require "./controller/function.php";
 require "view/header.php";
 
 ?>

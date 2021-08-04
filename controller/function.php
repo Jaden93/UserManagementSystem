@@ -1,10 +1,10 @@
 <?php
 
-require "connection.php";
+require "./sql/connection.php";
 
     function getConfig($param) {
 
-        $config = require "config.php";
+        $config = require "./sql/config.php";
         return array_key_exists($param, $config) ? $config[$param] : null;
     }
 

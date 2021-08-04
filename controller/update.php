@@ -1,6 +1,6 @@
 <?php
 
-    require "../connection.php";
+    require "../sql/connection.php";
     $conn = $GLOBALS['mysql'];
 
     if(!isset($_POST['updateData'])) {
